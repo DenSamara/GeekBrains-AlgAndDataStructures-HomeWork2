@@ -5,39 +5,60 @@
 //Коновалов Денис
 
 
-//Рекурсивная функция перевода десятичного числа в двоичное. Задача 1
-int DexToBin(int x){
-	int a = div(x, 2);
-	
-	//условие выхода из рекурсии
-	if (x % 2 == 0 && a == 0){
-		printf("\n");
-		return 0;
+//Итеративная функция возведения a в b
+int myPowIter(int a, int b){
+	int i, result = 1;
+
+	for(i = 1; i <= b; i++){
+		result *= a;
 	}
 
-	//печатаем результат
-	printf("%d", x % 2);
+	return result;
+}
 
-	return DexToBin(a);
+//Рекурсивная функция возведения a в b
+int myPowReq(int a, int b){
+	//условие выхода из рекурсии
+	if (b <= 0){
+		return 1;
+	}
+
+	return a*myPowReq(a, b-1);
+}
+
+//Рекурсивная функция возведения a в b с использованием свойства чётности степени
+int myPowReq2(int a, int b){
+	//условие выхода из рекурсии
+	if (b <= 0){
+		return 1;
+	}
+
+	return a*myPowReq(a, b-1);
 }
 
 
 int main(int argc, const char * argv[]){
-	int x = 0;
+	int a = 0, b = 0;
 
 	setlocale(LC_ALL, "Rus");
 	
-	/*
-	printf("\n---=== 1 ===---\n");
-	do{
-		printf("Введите десятичное число для перевода в двоичную СС. 0 - выход\n");
-		printf("Чтение результата справа-налево\n");
-		scanf("%d", &x);
+	printf("\n---=== 2 ===---\n");
+	printf("Введите число для возведения в степень\n");
+	scanf("%d", &a);
+	printf("Введите степень числа\n");
+	scanf("%d", &b);
 		
-		if (x != 0) DexToBin(x);
-	}while (x != 0);
-	*/
+	if (a == 0 && b == 0){
+		printf("Циклом: %d\n", 0);
+		printf("Рекурсивно: %d\n", 0);
+	}else{
+		if (b >= 0){
+			printf("Циклом: %d\n", myPowIter(a, b));
+			printf("Рекурсивно: %d\n", myPowReq(a, b));
+		}else
+			printf("Степень числа не может быть отрицательной");
+	}
 
-	//system("pause");
+	system("pause");
 	return 0;
 }
