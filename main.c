@@ -5,6 +5,7 @@
 //Коновалов Денис
 
 
+//Рекурсивная функция перевода десятичного числа в двоичное. Задача 1
 int DexToBin(int x){
 	int a = div(x, 2);
 	
@@ -26,6 +27,7 @@ int main(int argc, const char * argv[]){
 
 	setlocale(LC_ALL, "Rus");
 	
+	/*
 	printf("\n---=== 1 ===---\n");
 	do{
 		printf("Введите десятичное число для перевода в двоичную СС. 0 - выход\n");
@@ -34,6 +36,7 @@ int main(int argc, const char * argv[]){
 		
 		if (x != 0) DexToBin(x);
 	}while (x != 0);
+	*/
 
 	//system("pause");
 	return 0;
