@@ -29,11 +29,15 @@ int myPowReq(int a, int b){
 //Рекурсивная функция возведения a в b с использованием свойства чётности степени
 int myPowReq2(int a, int b){
 	//условие выхода из рекурсии
-	if (b <= 0){
-		return 1;
+	if (b % 2 == 0 && div(b, 2) == 0){
+		return a;
 	}
 
-	return a*myPowReq(a, b-1);
+	if (b % 2){
+		return a * myPowReq2(a, div(b, 2));
+	}
+
+	return myPowReq2(a, div(b, 2));
 }
 
 
@@ -51,10 +55,12 @@ int main(int argc, const char * argv[]){
 	if (a == 0 && b == 0){
 		printf("Циклом: %d\n", 0);
 		printf("Рекурсивно: %d\n", 0);
+		printf("Дихотомически: %d\n", 0);
 	}else{
 		if (b >= 0){
 			printf("Циклом: %d\n", myPowIter(a, b));
 			printf("Рекурсивно: %d\n", myPowReq(a, b));
+			printf("Дихотомически: %d\n", myPowReq2(a, b));//
 		}else
 			printf("Степень числа не может быть отрицательной");
 	}
