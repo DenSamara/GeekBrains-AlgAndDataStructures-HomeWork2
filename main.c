@@ -94,3 +94,80 @@ int main(int argc, const char * argv[]){
 	system("pause");
 	return 0;
 }
+
+/*
+//Решение задачи 3б сделал на c#
+        /// <summary>
+        /// Сложение
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        static int func1(int a)
+        {
+            return a + 1;
+        }
+
+        /// <summary>
+        /// Умножение на 2
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        static public int func2(int a)
+        {
+            return 2 * a;
+        }
+
+        //Добавлям элемент во все списки
+        static ArrayList addItem(ArrayList destination, int item)
+        {
+            for (int i = 0; i < destination.Count; i++)
+            {
+                ArrayList subList = (ArrayList)destination[i];
+                subList.Add(item);
+            }
+            ArrayList newBrach = new ArrayList();
+            newBrach.Add(item);
+            destination.Add(newBrach);
+
+            return destination;
+        }
+
+        static void Main(string[] args)
+        {
+            int end = 20;
+
+            ArrayList a = new ArrayList();
+            //Вершина 
+            a = addItem(a, 3);
+
+            for (int i = 3; i <= end; i++)
+            {
+                int f1 = func1(i);
+                int f2 = func2(i);
+
+                //Добавляем текущее значение во все ветки
+                if (f1 <= end)
+                {
+                    a = addItem(a, f1);
+                }
+
+                //Добавляем текущее значение во все ветки и создаём новую ветку
+                if (f2 <= end)
+                {
+                    a = addItem(a, f2);
+                }
+            }
+
+            foreach (ArrayList item in a)
+            {
+                foreach (int subitem in item)
+                {
+                    Console.Write("{0} ", subitem);
+                }
+                Console.WriteLine();
+            }
+
+            Console.ReadLine();
+        }
+    }
+*/
